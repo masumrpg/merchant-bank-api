@@ -1,0 +1,200 @@
+[
+  {
+    "id_transaction": "997176644658245131",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:13.954847681+07:00"
+  },
+  {
+    "id_transaction": "755309949038422519",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:19.836721807+07:00"
+  },
+  {
+    "id_transaction": "6390954245685805219",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:21.159709076+07:00"
+  },
+  {
+    "id_transaction": "8860599990803752935",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:22.353367581+07:00"
+  },
+  {
+    "id_transaction": "7567862205907666711",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:23.489316929+07:00"
+  },
+  {
+    "id_transaction": "8585732859281143197",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:24.540086826+07:00"
+  },
+  {
+    "id_transaction": "6507508368543308731",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:25.624786331+07:00"
+  },
+  {
+    "id_transaction": "6984903935230047935",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:26.659796018+07:00"
+  },
+  {
+    "id_transaction": "7640556020879012775",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T15:02:27.947776092+07:00"
+  },
+  {
+    "id_transaction": "7837598975169687797",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:22:52.471693989+07:00"
+  },
+  {
+    "id_transaction": "6559053008515619004",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:22:54.63839007+07:00"
+  },
+  {
+    "id_transaction": "3682806107412090529",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:22:56.723555034+07:00"
+  },
+  {
+    "id_transaction": "6784204749246115824",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:51:52.380257122+07:00"
+  },
+  {
+    "id_transaction": "2933809856981018510",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:51:55.065159184+07:00"
+  },
+  {
+    "id_transaction": "932649648453001067",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:51:57.514283362+07:00"
+  },
+  {
+    "id_transaction": "5690410095110935163",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:51:58.914801862+07:00"
+  },
+  {
+    "id_transaction": "2408095472721591828",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:52:00.291935658+07:00"
+  },
+  {
+    "id_transaction": "8659181374311907346",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:52:01.644870456+07:00"
+  },
+  {
+    "id_transaction": "4393068750920496960",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:52:02.874358232+07:00"
+  },
+  {
+    "id_transaction": "8301186310838120912",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T20:53:39.337332205+07:00"
+  },
+  {
+    "id_transaction": "6893820777549366192",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T22:56:30.511418958+07:00"
+  },
+  {
+    "id_transaction": "4262760557012890307",
+    "type": "PAYMENT",
+    "from_user": "user",
+    "to_user": "admin",
+    "amount": 1000000,
+    "details": "Transfer min",
+    "timestamp": "2024-11-23T22:56:49.578838039+07:00"
+  }
+]
