@@ -1,28 +1,25 @@
 package handlers
 
 import (
-	"math/rand"
+	"github.com/gofiber/fiber/v2"
 	"merchant-bank-api/app/dto/request"
 	"merchant-bank-api/app/dto/response"
-	"merchant-bank-api/app/models"
-	"merchant-bank-api/app/repository"
-	"strconv"
-	"time"
-
-	"github.com/gofiber/fiber/v2"
+	"merchant-bank-api/app/services"
 )
 
 type PaymentHandler struct {
-	repo *repository.JSONRepository
+	service *services.PaymentService
 }
 
-func NewPaymentHandler(repo *repository.JSONRepository) *PaymentHandler {
-	return &PaymentHandler{repo: repo}
+// NewPaymentHandler creates and returns a new instance of PaymentHandler
+func NewPaymentHandler(service *services.PaymentService) *PaymentHandler {
+	return &PaymentHandler{service: service}
 }
 
+// ProcessPayment handles the payment request from the client
 func (h *PaymentHandler) ProcessPayment(c *fiber.Ctx) error {
-	var paymentRequest = request.PaymentRequest
-
+	// Parse the payment request from the request body
+	var paymentRequest request.PaymentRequest
 	if err := c.BodyParser(&paymentRequest); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(response.ErrorResponse{
 			Message: "Invalid request body",
@@ -31,59 +28,15 @@ func (h *PaymentHandler) ProcessPayment(c *fiber.Ctx) error {
 
 	fromUsername := c.Locals("username").(string)
 
-	// Check if recipient exists
-	toUser, exists := h.repo.FindCustomerByUsername(paymentRequest.ToUsername)
-	if !exists {
+	// Call the service layer to process the payment
+	transaction, err := h.service.ProcessPayment(paymentRequest, fromUsername)
+	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(response.ErrorResponse{
-			Message: "User not found",
+			Message: err.Error(),
 		})
 	}
 
-	// Get sender details
-	fromUser, exists := h.repo.FindCustomerByUsername(fromUsername)
-	if !exists {
-		return c.Status(fiber.StatusBadRequest).JSON(response.ErrorResponse{
-			Message: "User not found",
-		})
-	}
-
-	// Validate balance
-	if fromUser.Balance < paymentRequest.Amount {
-		return c.Status(fiber.StatusBadRequest).JSON(response.ErrorResponse{
-			Message: "Balance not enough",
-		})
-	}
-
-	// Process payment
-	fromUser.Balance -= paymentRequest.Amount
-	toUser.Balance += paymentRequest.Amount
-
-	// Save updated balance
-	if err := h.repo.UpdateCustomerBalance(fromUser); err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(response.ErrorResponse{
-			Message: "Error updating user sender balance",
-			Error:   err.Error(),
-		})
-	}
-	if err := h.repo.UpdateCustomerBalance(toUser); err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(response.ErrorResponse{
-			Message: "Error updating user receiver balance",
-			Error:   err.Error(),
-		})
-	}
-
-	// Log transaction
-	transaction := models.Transaction{
-		IDTransaction: strconv.Itoa(rand.Int()),
-		Type:          "PAYMENT",
-		FromUser:      fromUsername,
-		ToUser:        paymentRequest.ToUsername,
-		Amount:        paymentRequest.Amount,
-		Details:       paymentRequest.Details,
-		Timestamp:     time.Now(),
-	}
-	h.repo.SavePaymentHistory(transaction)
-
+	// Return success response
 	return c.JSON(response.SuccessResponse{
 		Status:  fiber.StatusOK,
 		Message: "Payment processed successfully",
@@ -91,34 +44,46 @@ func (h *PaymentHandler) ProcessPayment(c *fiber.Ctx) error {
 	})
 }
 
+// GetAllPayment handles the request to retrieve all payment transactions
 func (h *PaymentHandler) GetAllPayment(c *fiber.Ctx) error {
-	var message = ""
-	payment := h.repo.FindAllPayment()
-	if len(payment) > 0 {
-		message = "Success retrieve all payment"
-	} else {
-		message = "Payment null"
+	// Call the service layer to get all payments
+	payments, err := h.service.GetAllPayments()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(response.ErrorResponse{
+			Message: "Error retrieving payments",
+		})
+	}
+
+	// Return the response with the list of payments
+	message := "Success retrieve all payments"
+	if len(payments) == 0 {
+		message = "No payments found"
 	}
 
 	return c.JSON(response.SuccessResponse{
 		Status:  fiber.StatusOK,
 		Message: message,
-		Data:    payment,
+		Data:    payments,
 	})
 }
 
+// GetPaymentById handles the request to retrieve a payment by its ID
 func (h *PaymentHandler) GetPaymentById(c *fiber.Ctx) error {
+	// Retrieve the payment ID from URL parameters
 	id := c.Params("id")
-	payment, exists := h.repo.FindPaymentById(id)
-	if exists == false {
+
+	// Call the service layer to retrieve the payment
+	payment, exists := h.service.GetPaymentById(id)
+	if !exists {
 		return c.Status(fiber.StatusBadRequest).JSON(response.ErrorResponse{
 			Message: "Payment not found",
 		})
 	}
 
+	// Return the payment details
 	return c.JSON(response.SuccessResponse{
 		Status:  fiber.StatusOK,
-		Message: "Success retrieve payment",
+		Message: "Payment retrieved successfully",
 		Data:    payment,
 	})
 }

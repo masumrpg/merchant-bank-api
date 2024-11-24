@@ -1,0 +1,26 @@
+[
+ {
+  "id": "2175333425589403705",
+  "username": "admin",
+  "password_hash": "$2a$10$msN8NdQhpwhptZfPP45jKemI7/KDdCnU/5MZWzCPcK..vt05ba52e",
+  "balance": 2020000,
+  "email": "newuser1@example.com",
+  "status": "active"
+ },
+ {
+  "id": "8922410490855911088",
+  "username": "user",
+  "password_hash": "$2a$10$/wcKDd4Tg71obbaMUWeuoe2fsIYHfVqQdI3boK55lY6BTzBZBkEBa",
+  "balance": 0,
+  "email": "user1@example.com",
+  "status": "active"
+ },
+ {
+  "id": "7406762997781072909",
+  "username": "user2",
+  "password_hash": "$2a$10$c5K0ifqGOlcj1ngcbgWc0OrsHBnkLanBj0/RPkSby2JTaD8Ilmrj2",
+  "balance": 8000000,
+  "email": "user1@example2.com",
+  "status": "active"
+ }
+]

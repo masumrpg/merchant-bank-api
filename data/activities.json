@@ -1,11 +1,1 @@
-[
-  {
-    "id": "8922410490855911088",
-    "type": "LOGIN",
-    "username": "user",
-    "details": "Successful login",
-    "timestamp": "2024-11-23T23:14:00.619723783+07:00",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIzODIwNDAsInVzZXJfaWQiOiI4OTIyNDEwNDkwODU1OTExMDg4IiwidXNlcm5hbWUiOiJ1c2VyIn0.lVUHIFO9mOejyZUK6ABAID4uzSz-cMsEMWvGYQv8-20",
-    "expiresIn": "2024-11-24T00:14:00.619354698+07:00"
-  }
-]
+[]
